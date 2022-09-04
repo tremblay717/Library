@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 body{
     background-color:gray;
     height: 100vh;
@@ -20,6 +22,7 @@ body{
     align-content: space-between;
     color: white;
     font-family: odinFont;
+    flex-wrap:nowrap;
 }
 
 .leftPart {
@@ -40,25 +43,63 @@ body{
 
 .rightPart {
     display: flex;
-    flex-direction: row;
     align-items: center;
     gap: 15px;
     justify-content:right;
+    text-align: right;
     width: 100%;
     height: 100%;
     font-size: 5vh;
-    padding-right: 5%;
     color: #cc9543;
+}
+
+.rightPart>p {
+    cursor: pointer;
 }
 
 .bookSection{
     background-color: #494949;
     margin-left: 5%;
     margin-right: 5%;
+    padding-top: 1%;
     height: 80vh;
     border-left: solid black;
     border-right: solid black;
+    font-family: Roboto;
 
+}
 
+ul {
+    list-style-type: none;
+    width: 50%;
+    height: 50%;
+   }
 
+input,label {
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+}
+
+input {
+    display: inline;
+    font-family: 'Roboto';
+    /* Uniform text dsafield size */
+    width: 200px;
+    height: 34px;
+    font-size: 1em;
+    box-sizing: border-box;
+    padding-left:1%;
+    /* Match form field borders */ 
+    border: 1px solid #999;
+    border-radius: 5px;
+    margin-bottom:15px;
+}
+
+form {
+    background-color: #F3F3F3;
+    height: auto;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    display: flex;
 }
