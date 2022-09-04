@@ -14,6 +14,7 @@ const newBook = document.querySelector('#addBook');
 // User enters book information in a form that appears when you click "ADD BOOK"
 const bookForm = document.createElement('form');
 
+
 // Form is split into 2 div; 
 
 // Left Div
@@ -51,22 +52,83 @@ const bookPagesLi = document.createElement('li');
 const bookPagesLabel = document.createElement('label');
 bookPagesLabel.textContent = "Number of pages:"
 const bookPagesInput = document.createElement('input')
-bookPagesInput.type = 'text';
+bookPagesInput.type = 'number';
 
 bookPagesLi.appendChild(bookPagesLabel);
 bookPagesLi.appendChild(bookPagesInput);
 bookUlRight.appendChild(bookPagesLi);
 
-// Author's Name Section
+// Reading Status
 const statusLi = document.createElement('li');
 const statusLabel = document.createElement('label');
 statusLabel.textContent = "Reading Status:"
 const readingInput = document.createElement('input');
-readingInput.type = 'text';
+readingInput.type = "text";
 
 statusLi.appendChild(statusLabel);
 statusLi.appendChild(readingInput);
 bookUlRight.appendChild(statusLi);
+
+// Adding button so user can submit its book information
+
+const submitButton = document.createElement('button');
+submitButton.textContent = "Submit";
+bookForm.appendChild(submitButton);
+
+// Right Part Div with Remove Form "X"
+const removeFormDiv = document.createElement('div');
+removeFormDiv.setAttribute('style', 'width:10%;padding-right:1%;')
+
+
+const removeForm = document.createElement('p');
+removeForm.style.cursor = "pointer";
+removeForm.style.textAlign= "right"
+removeForm.textContent = "X"
+
+
+removeFormDiv.appendChild(removeForm);
+
+const bookSection = document.getElementById('#bookSection');
+
+
+const enterBook = document.createElement('div');
+enterBook.className = "enterBook";
+
+const enterBookDiv = document.querySelector('#enterBookDiv');
+
+
+newBook.onclick = function () {
+    enterBook.appendChild(bookForm);
+    enterBook.appendChild(removeFormDiv);
+    enterBookDiv.appendChild(enterBook);
+};
+
+
+removeForm.onclick = function () {
+    enterBookDiv.removeChild(enterBook);
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // function Book (title,author,pages,status){
@@ -80,14 +142,3 @@ bookUlRight.appendChild(statusLi);
 //   }
 
 //   const hobbit = new Book("The Hobbit","J.R.R. Tolkien",295,"not read yet")
-
-
-
-
-
-
-
-const enterBook = document.querySelector('#enterBook');
-newBook.onclick = function () {
-    enterBook.appendChild(bookForm);
-};
