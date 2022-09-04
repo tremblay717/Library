@@ -2,7 +2,7 @@
 
 body{
     background-color:gray;
-    height: 100vh;
+    height: fit-content;
     margin: 0;
 }
 
@@ -15,7 +15,7 @@ body{
     padding-left: 5%;
     padding-right: 5%;
     background-color: black;
-    height: 20vh;
+    height: fit-content;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -63,9 +63,8 @@ body{
     margin-right: 5%;
     padding-top: 1%;
     height: 80vh;
-    border-left: solid black;
-    border-right: solid black;
     font-family: Roboto;
+    gap:10vh
 }
 
 .enterBook {
@@ -111,6 +110,8 @@ form {
     padding-bottom: 1%;
     width: 100%;
     display: flex;
+    font-size: 1.15vw;
+
 }
 
 button {
@@ -119,11 +120,47 @@ button {
     color: white;
     margin-top: 4%;
     margin-left: 3%;
-    width: 200px;
+    width: 15vw;
+    max-width: 190px;
     height: 50px;
-    font-size: 20px;
+    font-size: 1.25vw;
     border-radius: 5px;
     border: none;
     box-shadow: 0px 15px 10px -15px #111;
     cursor: pointer;
+}
+
+
+.addingBook{
+    display: grid;
+    grid-template: auto / 25% 25% 25% 25%;
+    text-align: center;
+    align-items: center;
+    font-size:1.25vw;
+    width: 100%;
+    height: 100%;
+}
+
+.box {
+    display: grid;
+    border-width: 1px;
+    /* height: 4vh; */
+    margin: 0%;
+    align-items: center;
+    padding: 1%;
+
+
+}
+
+
+.boxHeader{
+    display: grid;
+    height: 100%;
+    grid-template-rows: 50px;
+    background-color: #111;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    color: white;
+
 }
