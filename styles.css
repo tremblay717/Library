@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body{
-    background-color:gray;
+    background-color:dimgray;
     height: fit-content;
     margin: 0;
 }
@@ -58,7 +58,7 @@ body{
 }
 
 .bookSection{
-    background-color: #494949;
+    background-color:dimgray;
     margin-left: 5%;
     margin-right: 5%;
     padding-top: 1%;
@@ -69,17 +69,22 @@ body{
 
 .enterBook {
     display: flex;
-    margin: 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
     border-radius: 10px;
     border: 1px solid black;
-    background-color:#F3F3F3
+    background-color:#F3F3F3;
+    flex-wrap:wrap;
 }
 
 
 ul {
+    display: flex;
+    align-items: center;
     list-style-type: none;
     width: 25%;
     height: 50%;
+    margin-top: 0;
     flex-wrap: wrap;
    }
 
@@ -93,7 +98,7 @@ input {
     display: inline;
     font-family: 'Roboto';
     /* Uniform text dsafield size */
-    width: 200px;
+    width: 100%;
     height: 34px;
     font-size: 1em;
     box-sizing: border-box;
@@ -105,12 +110,17 @@ input {
 }
 
 form {
+    display: flex;
     height: auto;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    width: 100%;
+    padding-top: 2%;
+    padding-bottom: 4%;
+    width: 89%;
     display: flex;
     font-size: 1.15vw;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items:center;
+    justify-content: center;
 
 }
 
@@ -133,7 +143,7 @@ button {
 
 .addingBook{
     display: grid;
-    grid-template: auto / 25% 25% 25% 25%;
+    grid-template: 70px / 25% 25% 25% 25%;
     text-align: center;
     align-items: center;
     font-size:1.25vw;
@@ -143,11 +153,10 @@ button {
 
 .box {
     display: grid;
-    border-width: 1px;
-    /* height: 4vh; */
     margin: 0%;
     align-items: center;
     padding: 1%;
+    height: 100%;
 
 
 }
@@ -156,11 +165,11 @@ button {
 .boxHeader{
     display: grid;
     height: 100%;
-    grid-template-rows: 50px;
-    background-color: #111;
+    grid-template-rows: 40px;
+    background-color: black;
     align-items: center;
     align-content: center;
     text-align: center;
-    color: white;
+    color:#cc9543;
 
 }
