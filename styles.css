@@ -143,7 +143,7 @@ button {
 
 .addingBook{
     display: grid;
-    grid-template: 70px / 25% 25% 25% 25%;
+    grid-template: 70px / calc(100%/6) calc(100%/6) calc(100%/6) calc(100%/6) calc(100%/6) calc(100%/6);
     text-align: center;
     align-items: center;
     font-size:1.25vw;
@@ -158,9 +158,7 @@ button {
     padding: 1%;
     height: 100%;
 
-
 }
-
 
 .boxHeader{
     display: grid;
