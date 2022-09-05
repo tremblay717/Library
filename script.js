@@ -66,7 +66,7 @@ function bookGridHeader() {
     bookHeader.appendChild(titleHeader);
     bookHeader.appendChild(authorName);
     bookHeader.appendChild(pages);
-    bookHeader.appendChild(readingStatus);    
+    bookHeader.appendChild(readingStatus);
     bookHeader.appendChild(editReading);
     bookHeader.appendChild(removingBook);
 
@@ -110,13 +110,23 @@ function createBookLinesLibrary(library) {
         addreadingStatus.setAttribute('style', 'border-right-style:solid;border-right-width:1px');
         addreadingStatus.className = 'box';
 
+
         // h4 element for editing reading status
         editReading = document.createElement('h4');
         editReading.id = library[i].title;
         editReading.setAttribute('style', 'display:grid; align-items:center;justify-content:center;border-right-style:solid;border-right-width:1px');
-        // editReading.textContent = "Yes";
         editReading.className = 'box';
-        
+
+        //Button to edit reading status
+        let editReadingButton = document.createElement('button');
+        editReadingButton.id = library[i].title;
+        editReadingButton.style.backgroundColor = "#0c8254";
+        editReadingButton.className = "removeChange";
+        editReadingButton.textContent = "Change Status";
+        editLibrary = library;
+
+        editReadingButton.setAttribute('onclick', 'changeStatus(this.id,editLibrary)')
+        editReading.appendChild(editReadingButton);
 
         // h4 element for removing book
         removingBook = document.createElement('h4');
@@ -124,17 +134,17 @@ function createBookLinesLibrary(library) {
         removingBook.id = library[i].title;
         removingBook.className = 'box';
 
-        //Button to change read status
-        let editButton = document.createElement('button');
-        editButton.id= library[i].title;
-        editButton.style.backgroundColor="#3f0000"
-        editButton.className = "remove";
-        editButton.textContent="Remove Book ";
+        //Button to remove book
+        let removeBookButton = document.createElement('button');
+        removeBookButton.id = library[i].title;
+        removeBookButton.style.backgroundColor = "#3f0000";
+        removeBookButton.className = "removeChange";
+        removeBookButton.textContent = "Remove Book ";
         filtlibrary = library;
 
-        editButton.setAttribute('onclick', 'removeBook(this.id,filtlibrary)')
-        removingBook.appendChild(editButton);
-       
+        removeBookButton.setAttribute('onclick', 'removeBook(this.id,filtlibrary)')
+        removingBook.appendChild(removeBookButton);
+
         // No bottom Border for boxes in last row
         if (i != library.length - 1) {
             addingBook.setAttribute('style', 'border-bottom-style:solid;border-bottom-width:1px;');
@@ -144,7 +154,7 @@ function createBookLinesLibrary(library) {
         addingBook.appendChild(addBookTitle);
         addingBook.appendChild(addBookAuthor);
         addingBook.appendChild(addBookPages);
-        addingBook.appendChild(addreadingStatus);     
+        addingBook.appendChild(addreadingStatus);
         addingBook.appendChild(editReading);
         addingBook.appendChild(removingBook);
     }
@@ -188,12 +198,42 @@ createBookLinesLibrary(myLibrary);
 
 
 
-function removeBook (id, library) {
+function removeBook(id, library) {
 
-        const newLibrary =  library.filter(book => book.title != id);
-        
-        // My library equals = our filtered library
-        myLibrary = newLibrary;
+    const newLibrary = library.filter(book => book.title != id);
+
+    // My library equals = our filtered library
+    myLibrary = newLibrary;
+
+    // We make sure to clear our book Grid of every element named after the addingBook Class. 
+    let i = 0;
+    while (i < document.querySelectorAll('.addingBook').length) {
+        let addingBookClass = document.querySelector('.addingBook');
+        addingBookClass.remove();
+    }
+
+    // Calling our grid functions to display our books;
+    bookGridHeader();
+    createBookLinesLibrary(myLibrary);
+
+}
+
+function changeStatus(id, library) {
+    console.log("hello")
+
+    myLibrary = library
+
+    bookname = myLibrary.find(({title}) => title === id);
+
+    booknameIndex = myLibrary.indexOf(bookname);
+
+    if(myLibrary[booknameIndex].status == "Yes"){
+        myLibrary[booknameIndex].status = "No"
+    }
+
+    else{
+        myLibrary[booknameIndex].status = "Yes"
+    }
 
         // We make sure to clear our book Grid of every element named after the addingBook Class. 
         let i = 0;
@@ -201,9 +241,9 @@ function removeBook (id, library) {
             let addingBookClass = document.querySelector('.addingBook');
             addingBookClass.remove();
         }
-        
+    
         // Calling our grid functions to display our books;
         bookGridHeader();
-        createBookLinesLibrary(myLibrary);  
+        createBookLinesLibrary(myLibrary);
 
 }
