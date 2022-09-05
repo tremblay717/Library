@@ -93,11 +93,11 @@ enterBook.className = "enterBook";
 const enterBookDiv = document.querySelector('#enterBookDiv');
 
 
-newBook.onclick = function () {
-    enterBook.appendChild(bookForm);
-    enterBook.appendChild(removeFormDiv);
-    enterBookDiv.appendChild(enterBook);
-};
+// newBook.onclick = function () {
+//     enterBook.appendChild(bookForm);
+//     enterBook.appendChild(removeFormDiv);
+//     enterBookDiv.appendChild(enterBook);
+// };
 
 
 removeForm.onclick = function () {
@@ -130,7 +130,8 @@ const bookGrid = document.createElement('div');
 bookGrid.id = "booKGrid";
 bookGrid.setAttribute('style', 'display: grid; border-style:solid; border-color:black; border-width:2px; background-color: #F3F3F3;padding:0px;')
 
-if (myLibrary.length > 0) {
+function bookGridHeader () {
+
     bookList.appendChild(bookGrid);
 
     // Grid header 
@@ -165,125 +166,106 @@ if (myLibrary.length > 0) {
     bookHeader.appendChild(readingStatus);
     bookGrid.appendChild(bookHeader);
 
-
-    for (let i = 0; i < myLibrary.length; i++) {
-        //Creating a div for each book in our library
-        addingBook = document.createElement('div');
-        addingBook.className = "addingBook";
+}
 
 
-        // h3 element for our book title
-        addBookTitle = document.createElement('h3')
-        addBookTitle.textContent = myLibrary[i].title;
-        addBookTitle.setAttribute('style', 'border-right-style:solid;border-right-width:1px')
-        addBookTitle.className = 'box'
+function createBookLinesLibrary() {
 
-        // h4 element for author's name
-        addBookAuthor = document.createElement('h4')
-        addBookAuthor.textContent = myLibrary[i].author;
-        addBookAuthor.setAttribute('style', 'border-right-style:solid;border-right-width:1px')
-        addBookAuthor.className = 'box'
+        for (let i = 0; i < myLibrary.length; i++) {
+            //Creating a div for each book in our library
+            addingBook = document.createElement('div');
+            addingBook.className = "addingBook";
 
 
-        // h4 element for number of pages
-        addBookPages = document.createElement('h4')
-        addBookPages.textContent = myLibrary[i].pages + " pages";
-        addBookPages.setAttribute('style', 'border-right-style:solid;border-right-width:1px')
-        addBookPages.className = 'box'
+            // h3 element for our book title
+            addBookTitle = document.createElement('h3')
+            addBookTitle.textContent = myLibrary[i].title;
+            addBookTitle.setAttribute('style', 'border-right-style:solid;border-right-width:1px')
+            addBookTitle.className = 'box'
+
+            // h4 element for author's name
+            addBookAuthor = document.createElement('h4')
+            addBookAuthor.textContent = myLibrary[i].author;
+            addBookAuthor.setAttribute('style', 'border-right-style:solid;border-right-width:1px')
+            addBookAuthor.className = 'box'
 
 
-        // h4 element for reading Status
-        addreadingStatus = document.createElement('h4')
-        addreadingStatus.textContent = myLibrary[i].status;
-        addreadingStatus.className = 'box'
+            // h4 element for number of pages
+            addBookPages = document.createElement('h4')
+            addBookPages.textContent = myLibrary[i].pages + " pages";
+            addBookPages.setAttribute('style', 'border-right-style:solid;border-right-width:1px')
+            addBookPages.className = 'box'
 
-        // No bottom Border for boxes in last row
-        if (i != myLibrary.length - 1) {
-            addingBook.setAttribute('style', 'border-bottom-style:solid;border-bottom-width:1px;')
+
+            // h4 element for reading Status
+            addreadingStatus = document.createElement('h4')
+            addreadingStatus.textContent = myLibrary[i].status;
+            addreadingStatus.className = 'box'
+
+            // No bottom Border for boxes in last row
+            if (i != myLibrary.length - 1) {
+                addingBook.setAttribute('style', 'border-bottom-style:solid;border-bottom-width:1px;')
+            }
+
+            bookGrid.appendChild(addingBook);
+            addingBook.appendChild(addBookTitle);
+            addingBook.appendChild(addBookAuthor);
+            addingBook.appendChild(addBookPages);
+            addingBook.appendChild(addreadingStatus);
         }
 
-        bookGrid.appendChild(addingBook);
-        addingBook.appendChild(addBookTitle);
-        addingBook.appendChild(addBookAuthor);
-        addingBook.appendChild(addBookPages);
-        addingBook.appendChild(addreadingStatus);
+
     }
 
-} else {
-    bookList.removeChild(bookGrid);
-}
 
 
+var livre = new Book();
 
-submitButton.onclick = function () {
+// function submit () {
 
+//     const livre =  {title:bookTitleInput.value,author:authorInput.value,pages:bookPagesInput.value, status:readingInput.value};
 
-    // if ((bookTitleInput.value.length > 0) && (authorInput.value.length > 0) &&
-    // (bookPagesInput.value.length>0) && (readingInput.value.length > 0)) {
-        const lastBook = new Book(bookTitleInput.value, authorInput.value, bookPagesInput.value,readingInput.value);
-        console.log(lastBook);
+//     console.log(bookTitleInput.value);
+//     console.log(livre);
 
-        myLibrary.push(lastBook);
+//     myLibrary.push(livre);   
+//     return livre;
 
-         //Creating a div for each book in our library
-         addingBook = document.createElement('div');
-         addingBook.className = "addingBook";
- 
- 
-         // h3 element for our book title
-         addBookTitle = document.createElement('h3')
-         addBookTitle.textContent = myLibrary[3].title;
-         addBookTitle.setAttribute('style', 'border-right-style:solid;border-right-width:1px')
-         addBookTitle.className = 'box'
- 
-         // h4 element for author's name
-         addBookAuthor = document.createElement('h4')
-         addBookAuthor.textContent = myLibrary[3].author;
-         addBookAuthor.setAttribute('style', 'border-right-style:solid;border-right-width:1px')
-         addBookAuthor.className = 'box'
- 
- 
-         // h4 element for number of pages
-         addBookPages = document.createElement('h4')
-         addBookPages.textContent = myLibrary[3].pages + " pages";
-         addBookPages.setAttribute('style', 'border-right-style:solid;border-right-width:1px')
-         addBookPages.className = 'box'
- 
- 
-         // h4 element for reading Status
-         addreadingStatus = document.createElement('h4')
-         addreadingStatus.textContent = myLibrary[3].status;
-         addreadingStatus.className = 'box'
- 
-         // No bottom Border for boxes in last row
-         if (myLibrary[3] != myLibrary.length - 1) {
-             addingBook.setAttribute('style', 'border-bottom-style:solid;border-bottom-width:1px;')
-         }
- 
-         bookGrid.appendChild(addingBook);
-         addingBook.appendChild(addBookTitle);
-         addingBook.appendChild(addBookAuthor);
-         addingBook.appendChild(addBookPages);
-         addingBook.appendChild(addreadingStatus);
-         console.log(myLibrary);
-         return lastBook;
-    // } else {
-    //     return;
-    // }
-         console.log(myLibrary);
-}
+// }
 
-console.log(myLibrary);
+const odin = document.querySelector("#odin");
 
 
+newBook.onclick = function () {
+    var livre = new Book();
+    
+    var title = prompt("title");
+    var author = prompt("author");
+    var pages = prompt("pages");
+    var status = prompt("status");
+
+    livre.title = title
+    livre.author = author
+    livre.pages = pages
+    livre.status = status
 
 
+    console.log(livre)
+    myLibrary.push(livre);
 
+    let i = 0;
+    while (i < document.querySelectorAll('.addingBook').length) {
+        let addingBookClass = document.querySelector('.addingBook');
+        addingBookClass.remove();
+    }
 
+    bookGridHeader();
+    createBookLinesLibrary();
 
+};
 
-
-
+bookGridHeader()
+createBookLinesLibrary();
 
 // function Book (title,author,pages,status){
 //     this.title = title;
