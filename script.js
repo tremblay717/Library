@@ -180,10 +180,12 @@ newBook.onclick = function () {
     myLibrary.push(livre);
 
     // We make sure to clear our book Grid of every element named after the addingBook Class. 
-    let i = 0;
-    while (i < document.querySelectorAll('.addingBook').length) {
-        let addingBookClass = document.querySelector('.addingBook');
-        addingBookClass.remove();
+
+    const addingBookClass = document.querySelectorAll('.addingBook');
+
+    for(let i =0;i<addingBookClass.length;i++){
+
+        addingBookClass[i].remove();
     }
 
     // Calling our grid functions to display our books;
@@ -219,7 +221,6 @@ function removeBook(id, library) {
 }
 
 function changeStatus(id, library) {
-    console.log("hello")
 
     myLibrary = library
 
@@ -228,19 +229,23 @@ function changeStatus(id, library) {
     booknameIndex = myLibrary.indexOf(bookname);
 
     if(myLibrary[booknameIndex].status == "Yes"){
+
         myLibrary[booknameIndex].status = "No"
     }
 
     else{
+
         myLibrary[booknameIndex].status = "Yes"
     }
 
-        // We make sure to clear our book Grid of every element named after the addingBook Class. 
-        let i = 0;
-        while (i < document.querySelectorAll('.addingBook').length) {
-            let addingBookClass = document.querySelector('.addingBook');
-            addingBookClass.remove();
-        }
+    const addingBookClass = document.querySelectorAll('.addingBook');
+
+    for(let i =0;i<addingBookClass.length;i++){
+        
+        addingBookClass[i].remove();
+    
+    }
+
     
         // Calling our grid functions to display our books;
         bookGridHeader();
