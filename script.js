@@ -1,6 +1,6 @@
 const newBook = document.querySelector('#addBook');
 
-// Object constructor 
+// Object constructor
 function Book(title, author, pages, status) {
     this.title = title;
     this.author = author;
@@ -27,7 +27,7 @@ function bookGridHeader() {
 
     bookList.appendChild(bookGrid);
 
-    // Grid header 
+    // Grid header
     const bookHeader = document.createElement('div');
     bookHeader.className = "addingBook";
 
@@ -179,7 +179,7 @@ newBook.onclick = function () {
 
     myLibrary.push(livre);
 
-    // We make sure to clear our book Grid of every element named after the addingBook Class. 
+    // We make sure to clear our book Grid of every element named after the addingBook Class.
 
     const addingBookClass = document.querySelectorAll('.addingBook');
 
@@ -207,12 +207,13 @@ function removeBook(id, library) {
     // My library equals = our filtered library
     myLibrary = newLibrary;
 
-    // We make sure to clear our book Grid of every element named after the addingBook Class. 
-    let i = 0;
-    while (i < document.querySelectorAll('.addingBook').length) {
-        let addingBookClass = document.querySelector('.addingBook');
-        addingBookClass.remove();
-    }
+    // We make sure to clear our book Grid of every element named after the addingBook Class.
+    const addingBookClass = document.querySelectorAll('.addingBook');
+
+    for(let i =0;i<addingBookClass.length;i++){
+
+        addingBookClass[i].remove();
+      }
 
     // Calling our grid functions to display our books;
     bookGridHeader();
@@ -241,12 +242,12 @@ function changeStatus(id, library) {
     const addingBookClass = document.querySelectorAll('.addingBook');
 
     for(let i =0;i<addingBookClass.length;i++){
-        
+
         addingBookClass[i].remove();
-    
+
     }
 
-    
+
         // Calling our grid functions to display our books;
         bookGridHeader();
         createBookLinesLibrary(myLibrary);
