@@ -15,14 +15,45 @@
             <img src="./images/odin-lined.png" alt="" class="odinLogo">
             <p id="odin">ODIN Library</p>
         </div>
-        <div class="rightPart">
-            <p id="addBook">Add book</p>
-        </div>
    </div>
-    </div>
+    
+</div>
+
+<div class="bottomSection">
+    <div class="form">
+        <box>
+            <form onsubmit="return false;" method="post" style="font-family: Roboto;">
+                <p style="display:flex; padding-left:20px;font-size:1.25rem;font-weight: bold;">Add a new book</p>
+
+                <ul>
+                    <li>
+                        <label for="bookTitle">Book Title:</label>
+                        <input type="text" name="bookTitle" id="bookTitle"  onkeyup="titleCheck();">
+                    </li>
+                    <li><label for="AuthorName">Author's Name:</label>
+                    <input type="text" name="AuthorName" id="AuthorName"  onkeyup="authorCheck();">
+                </li>
+                    <li>
+                        <label for="pageNumber">Number of pages:</label>
+                        <input type="number" name="pageNumber" id="pageNumber" onkeyup="pagesCheck();"  style="width:100%;">
+                    </li>
+                    <li  style="width: 120%;display:flex;flex-direction: column; align-content: center;">
+                        <label for="status" style="height: fit-content;">Have you read the book?</label>
+                        <input type="checkbox" name="status" id="status" style="width: 15px;">
+                    </li>
+                    <li>
+                        <button name="foo" id="foo" style="height: 40px" onclick="submit();">Add Book</button>
+                    </li>
+                </ul>
+            </form>
+        </box>
+          </div>
     <div class="bookSection">
         <div class="enterBookDiv" id="enterBookDiv"></div>
         <div class="bookList" id="bookList"></div>
+</div>
+
+
 </body>
 <script src="script.js"></script>
 </html>

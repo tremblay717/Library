@@ -1,5 +1,3 @@
-const newBook = document.querySelector('#addBook');
-
 // Object constructor
 function Book(title, author, pages, status) {
     this.title = title;
@@ -32,33 +30,33 @@ function bookGridHeader() {
     bookHeader.className = "addingBook";
 
     // h3 element for our book title
-    titleHeader = document.createElement('h3');
+    const titleHeader = document.createElement('h3');
     titleHeader.textContent = "Book Title";
     titleHeader.className = 'boxHeader';
 
     // h4 element for author's name
-    authorName = document.createElement('h4');
+    const authorName = document.createElement('h4');
     authorName.textContent = "Author's Name";
     authorName.className = 'boxHeader';
 
 
     // h4 element for number of pages
-    pages = document.createElement('h4');
+    const pages = document.createElement('h4');
     pages.textContent = "Number of pages";
     pages.className = 'boxHeader';
 
     // h4 element for reading Status
-    readingStatus = document.createElement('h4')
+    const readingStatus = document.createElement('h4')
     readingStatus.textContent = "Reading Status";
     readingStatus.className = 'boxHeader';
 
     // h4 element for removing book
-    removingBook = document.createElement('h4')
+    const removingBook = document.createElement('h4')
     removingBook.textContent = "Remove Book?";
     removingBook.className = 'boxHeader';
 
     // h4 element for editing reading status
-    editReading = document.createElement('h4')
+    const editReading = document.createElement('h4')
     editReading.textContent = "Change reading status?";
     editReading.className = 'boxHeader';
 
@@ -79,46 +77,46 @@ function createBookLinesLibrary(library) {
 
     for (let i = 0; i < library.length; i++) {
         //Creating a div for each book in our library
-        addingBook = document.createElement('div');
+        const addingBook = document.createElement('div');
         addingBook.className = "addingBook";
 
 
         // h3 element for our book title
-        addBookTitle = document.createElement('h3');
+        const addBookTitle = document.createElement('h3');
         addBookTitle.textContent = library[i].title;
         addBookTitle.id = library[i].title;
         addBookTitle.setAttribute('style', 'border-right-style:solid;border-right-width:1px');
         addBookTitle.className = 'box';
 
         // h4 element for author's name
-        addBookAuthor = document.createElement('h4');
+        const addBookAuthor = document.createElement('h4');
         addBookAuthor.textContent = library[i].author;
         addBookAuthor.setAttribute('style', 'border-right-style:solid;border-right-width:1px');
         addBookAuthor.className = 'box';
 
 
         // h4 element for number of pages
-        addBookPages = document.createElement('h4');
+        const addBookPages = document.createElement('h4');
         addBookPages.textContent = library[i].pages + " pages";
         addBookPages.setAttribute('style', 'border-right-style:solid;border-right-width:1px');
         addBookPages.className = 'box';
 
 
         // h4 element for reading Status
-        addreadingStatus = document.createElement('h4');
+        const addreadingStatus = document.createElement('h4');
         addreadingStatus.textContent = library[i].status;
         addreadingStatus.setAttribute('style', 'border-right-style:solid;border-right-width:1px');
         addreadingStatus.className = 'box';
 
 
         // h4 element for editing reading status
-        editReading = document.createElement('h4');
+        const editReading = document.createElement('h4');
         editReading.id = library[i].title;
         editReading.setAttribute('style', 'display:grid; align-items:center;justify-content:center;border-right-style:solid;border-right-width:1px');
         editReading.className = 'box';
 
         //Button to edit reading status
-        let editReadingButton = document.createElement('button');
+        const editReadingButton = document.createElement('button');
         editReadingButton.id = library[i].title;
         editReadingButton.style.backgroundColor = "#0c8254";
         editReadingButton.className = "removeChange";
@@ -129,13 +127,13 @@ function createBookLinesLibrary(library) {
         editReading.appendChild(editReadingButton);
 
         // h4 element for removing book
-        removingBook = document.createElement('h4');
+        const removingBook = document.createElement('h4');
         removingBook.setAttribute('style', 'display:grid; align-items:center;justify-content:center;border-right-style:solid;border-right-width:1px');
         removingBook.id = library[i].title;
         removingBook.className = 'box';
 
         //Button to remove book
-        let removeBookButton = document.createElement('button');
+        const removeBookButton = document.createElement('button');
         removeBookButton.id = library[i].title;
         removeBookButton.style.backgroundColor = "#3f0000";
         removeBookButton.className = "removeChange";
@@ -161,43 +159,10 @@ function createBookLinesLibrary(library) {
 
 }
 
-const odin = document.querySelector("#odin");
-
-newBook.onclick = function () {
-    const livre = new Book();
-
-    const title = prompt("Enter Book Title");
-    const author = prompt("Enter Author's Name");
-    const pages = prompt("Enter Number of pages");
-    const status = prompt("Have you read the book? Yes/No?");
-
-
-    livre.title = title;
-    livre.author = author;
-    livre.pages = pages;
-    livre.status = status;
-
-    myLibrary.push(livre);
-
-    // We make sure to clear our book Grid of every element named after the addingBook Class.
-
-    const addingBookClass = document.querySelectorAll('.addingBook');
-
-    for(let i =0;i<addingBookClass.length;i++){
-
-        addingBookClass[i].remove();
-    }
-
-    // Calling our grid functions to display our books;
-    bookGridHeader();
-    createBookLinesLibrary(myLibrary);
-
-};
 
 // Calling our grid functions
 bookGridHeader();
 createBookLinesLibrary(myLibrary);
-
 
 
 function removeBook(id, library) {
@@ -210,10 +175,10 @@ function removeBook(id, library) {
     // We make sure to clear our book Grid of every element named after the addingBook Class.
     const addingBookClass = document.querySelectorAll('.addingBook');
 
-    for(let i =0;i<addingBookClass.length;i++){
+    for (let i = 0; i < addingBookClass.length; i++) {
 
         addingBookClass[i].remove();
-      }
+    }
 
     // Calling our grid functions to display our books;
     bookGridHeader();
@@ -223,33 +188,114 @@ function removeBook(id, library) {
 
 function changeStatus(id, library) {
 
-    myLibrary = library
+    const myLibrary = library
 
-    bookname = myLibrary.find(({title}) => title === id);
+    const bookname = myLibrary.find(({
+        title
+    }) => title === id);
 
-    booknameIndex = myLibrary.indexOf(bookname);
+    const booknameIndex = myLibrary.indexOf(bookname);
 
-    if(myLibrary[booknameIndex].status == "Yes"){
+    if (myLibrary[booknameIndex].status == "Yes") {
 
         myLibrary[booknameIndex].status = "No"
-    }
 
-    else{
+    } else {
 
         myLibrary[booknameIndex].status = "Yes"
     }
 
     const addingBookClass = document.querySelectorAll('.addingBook');
 
-    for(let i =0;i<addingBookClass.length;i++){
+    for (let i = 0; i < addingBookClass.length; i++) {
 
         addingBookClass[i].remove();
 
     }
 
 
+    // Calling our grid functions to display our books;
+    bookGridHeader();
+    createBookLinesLibrary(myLibrary);
+
+}
+
+const bookTitleTest = document.getElementById('bookTitle');
+const authorNameTest = document.getElementById('AuthorName');
+const pageNumberTest = document.getElementById('pageNumber');
+const statusTest = document.getElementById('status');
+
+const submitbutton = document.getElementById('foo');
+
+
+//Arrays and functions to prevent user to submit bad data 
+let checkTitle = [];
+
+let checkAUthor = [];
+
+let checkPages = [];
+
+
+function titleCheck() {
+    checkTitle.push(bookTitleTest.value);
+}
+
+function authorCheck() {
+    checkAUthor.push(authorNameTest.value);
+}
+
+function pagesCheck() {
+    checkPages.push(pageNumberTest.value);
+}
+
+
+
+submitbutton.onclick = function () {
+
+    if (checkTitle.length > 0 && checkAUthor.length > 0 && checkPages.length > 0) {
+
+        const livre = new Book(bookTitleTest.value, authorNameTest.value, pageNumberTest.value, statusTest.value);
+        console.log(bookTitleTest.value)
+        title = bookTitleTest.value
+        author = authorNameTest.value
+        pages = pageNumberTest.value
+
+        if (livre.pages <= 0) {
+            return;
+        }
+
+        statusReading = statusTest.value
+
+        if (statusTest.checked == true) {
+            livre.status = "Yes"
+        } else if (statusTest.checked == false) {
+            livre.status = "No"
+        }
+
+        myLibrary.push(livre);
+
+        // We make sure to clear our book Grid of every element named after the addingBook Class.
+
+        const addingBookClass = document.querySelectorAll('.addingBook');
+
+        for (let i = 0; i < addingBookClass.length; i++) {
+
+            addingBookClass[i].remove();
+        }
         // Calling our grid functions to display our books;
         bookGridHeader();
         createBookLinesLibrary(myLibrary);
 
-}
+        checkTitle = [];
+        checkAUthor = [];
+        checkPages = [];
+
+        bookTitleTest.value = "";
+        authorNameTest.value = "";
+        pageNumberTest.value = "";
+        statusTest.checked = false;
+
+    } else if (checkTitle.length == 0 || checkAUthor.length == 0 || (checkPages.length > 0 && checkPages.value > 0)) {
+        return;
+    }
+};

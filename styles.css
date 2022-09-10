@@ -4,6 +4,7 @@ body{
     background-color:dimgray;
     height: fit-content;
     margin: 0;
+
 }
 
 @font-face {
@@ -12,7 +13,6 @@ body{
 }
 
 .header {
-    padding-left: 5%;
     padding-right: 5%;
     background-color: black;
     height: fit-content;
@@ -34,6 +34,8 @@ body{
     width: 100%;
     height: 100%;
     font-size: 7vh;
+    margin-left: 3%;
+
 }
 
 .odinLogo {
@@ -41,40 +43,16 @@ body{
     height: 13vh;
 }
 
-.rightPart {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    justify-content:right;
-    text-align: right;
-    width: 100%;
-    height: 100%;
-    font-size: 5vh;
-    color: #cc9543;
-}
-
-.rightPart>p {
-    cursor: pointer;
-}
 
 .bookSection{
     background-color:dimgray;
+    width: 100%;
     margin-left: 5%;
-    margin-right: 5%;
-    padding-top: 1%;
+    margin-right: 2%;
     height: 80vh;
+    margin-top: 0.75%;
     font-family: Roboto;
     gap:10vh
-}
-
-.enterBook {
-    display: flex;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    border-radius: 10px;
-    border: 1px solid black;
-    background-color:#F3F3F3;
-    flex-wrap:wrap;
 }
 
 
@@ -83,7 +61,9 @@ ul {
     align-items: center;
     list-style-type: none;
     width: 25%;
-    height: 50%;
+    height: fit-content;
+    gap:2%;
+    padding-left: 20px;
     margin-top: 0;
     flex-wrap: wrap;
    }
@@ -94,34 +74,35 @@ input,label {
     gap:10px;
 }
 
+label {
+    width: 240%;
+}
+
 input {
     display: inline;
     font-family: 'Roboto';
     /* Uniform text dsafield size */
-    width: 100%;
+    width: 240%;
     height: 34px;
-    font-size: 1em;
+    font-size: 0.75em;
     box-sizing: border-box;
-    padding-left:1%;
-    /* Match form field borders */ 
+    padding-left:10%;
+    /* Match form field borders */
     border: 1px solid #999;
     border-radius: 5px;
     margin-bottom:15px;
 }
 
 form {
-    display: flex;
-    height: auto;
+    height: 100%;
+    width: 100%;
     padding-top: 2%;
     padding-bottom: 4%;
-    width: 89%;
-    display: flex;
     font-size: 1.15vw;
     flex-wrap: wrap;
     align-content: center;
     align-items:center;
     justify-content: center;
-
 }
 
 button {
@@ -146,7 +127,7 @@ button {
     grid-template: 70px / calc(100%/6) calc(100%/6) calc(100%/6) calc(100%/6) calc(100%/6) calc(100%/6);
     text-align: center;
     align-items: center;
-    font-size:1.25vw;
+    font-size:1.1vw;
     width: 100%;
     height: 100%;
 }
@@ -168,6 +149,40 @@ button {
     align-items: center;
     align-content: center;
     text-align: center;
-    color:#cc9543;
+    color:aliceblue;
 
+}
+
+.form {
+    width: 20%;
+    margin-top: 0.75%;
+    margin-left: 2%;
+    height: 100%;
+}
+
+box {
+    position: fixed;
+    display: grid;
+    background-color: white;
+    border-radius: 0px;
+    align-self: start;
+    text-align: center;
+    padding: 1%;
+    border-left: solid black;
+    border-width: 10px;
+    border-radius: 10px;
+    margin-left: 1%;
+    width: 15%;
+    height: 50%; 
+    font-size: 1.5vh;
+    text-align: left;
+    box-shadow: 0px 15px 10px -15px #111;
+
+}
+
+.bottomSection { 
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    gap: 1%;
 }
