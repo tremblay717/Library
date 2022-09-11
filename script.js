@@ -292,7 +292,7 @@ submitbutton.onclick = function () {
         pageNumberTest.value = "";
         statusTest.checked = false;
 
-    } else if (checkTitle.length == 0 || checkAUthor.length == 0 || (checkPages.length > 0 && checkPages.value > 0)) {
-        return;
+    } else if (checkTitle.length == 0 || myLibrary[myLibrary.length-1].title == '' || checkAUthor.length == 0 || myLibrary[myLibrary.length-1].author == '' || (checkPages.length > 0 && checkPages.value > 0)) {
+        myLibrary.pop()
     }
 };
