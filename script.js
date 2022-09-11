@@ -256,10 +256,6 @@ submitbutton.onclick = function () {
     author = authorNameTest.value
     pages = pageNumberTest.value
 
-    if (livre.pages <= 0) {
-        return;
-    }
-
     statusReading = statusTest.value
 
     if (statusTest.checked == true) {
