@@ -213,7 +213,6 @@ function changeStatus(id, library) {
 
     }
 
-
     // Calling our grid functions to display our books;
     bookGridHeader();
     createBookLinesLibrary(myLibrary);
@@ -230,9 +229,7 @@ const submitbutton = document.getElementById('foo');
 
 //Arrays and functions to prevent user to submit bad data 
 let checkTitle = [];
-
 let checkAUthor = [];
-
 let checkPages = [];
 
 
