@@ -271,28 +271,32 @@ submitbutton.onclick = function () {
 
         myLibrary.push(livre);
 
-        // We make sure to clear our book Grid of every element named after the addingBook Class.
+        if (checkTitle.length == 0 || myLibrary[myLibrary.length - 1].title == '' || checkAUthor.length == 0 || myLibrary[myLibrary.length - 1].author == '' || (checkPages.length > 0 && checkPages.value > 0)) {
+            myLibrary.pop();
+            
+        } else {
 
-        const addingBookClass = document.querySelectorAll('.addingBook');
+            // We make sure to clear our book Grid of every element named after the addingBook Class.
 
-        for (let i = 0; i < addingBookClass.length; i++) {
+            const addingBookClass = document.querySelectorAll('.addingBook');
 
-            addingBookClass[i].remove();
+            for (let i = 0; i < addingBookClass.length; i++) {
+
+                addingBookClass[i].remove();
+            }
+            // Calling our grid functions to display our books;
+            bookGridHeader();
+            createBookLinesLibrary(myLibrary);
+
+            checkTitle = [];
+            checkAUthor = [];
+            checkPages = [];
+
+            bookTitleTest.value = "";
+            authorNameTest.value = "";
+            pageNumberTest.value = "";
+            statusTest.checked = false;
+
         }
-        // Calling our grid functions to display our books;
-        bookGridHeader();
-        createBookLinesLibrary(myLibrary);
-
-        checkTitle = [];
-        checkAUthor = [];
-        checkPages = [];
-
-        bookTitleTest.value = "";
-        authorNameTest.value = "";
-        pageNumberTest.value = "";
-        statusTest.checked = false;
-
-    } else if (checkTitle.length == 0 || myLibrary[myLibrary.length-1].title == '' || checkAUthor.length == 0 || myLibrary[myLibrary.length-1].author == '' || (checkPages.length > 0 && checkPages.value > 0)) {
-        myLibrary.pop()
     }
-};
+}
