@@ -249,54 +249,53 @@ function pagesCheck() {
 
 submitbutton.onclick = function () {
 
-    if (checkTitle.length > 0 && checkAUthor.length > 0 && checkPages.length > 0) {
 
-        const livre = new Book(bookTitleTest.value, authorNameTest.value, pageNumberTest.value, statusTest.value);
-        console.log(bookTitleTest.value)
-        title = bookTitleTest.value
-        author = authorNameTest.value
-        pages = pageNumberTest.value
+    const livre = new Book(bookTitleTest.value, authorNameTest.value, pageNumberTest.value, statusTest.value);
+    console.log(bookTitleTest.value)
+    title = bookTitleTest.value
+    author = authorNameTest.value
+    pages = pageNumberTest.value
 
-        if (livre.pages <= 0) {
-            return;
-        }
-
-        statusReading = statusTest.value
-
-        if (statusTest.checked == true) {
-            livre.status = "Yes"
-        } else if (statusTest.checked == false) {
-            livre.status = "No"
-        }
-
-        myLibrary.push(livre);
-
-        if (checkTitle.length == 0 || myLibrary[myLibrary.length - 1].title == '' || checkAUthor.length == 0 || myLibrary[myLibrary.length - 1].author == '' || (checkPages.length > 0 && checkPages.value > 0)) {
-            myLibrary.pop();
-            
-        } else {
-
-            // We make sure to clear our book Grid of every element named after the addingBook Class.
-
-            const addingBookClass = document.querySelectorAll('.addingBook');
-
-            for (let i = 0; i < addingBookClass.length; i++) {
-
-                addingBookClass[i].remove();
-            }
-            // Calling our grid functions to display our books;
-            bookGridHeader();
-            createBookLinesLibrary(myLibrary);
-
-            checkTitle = [];
-            checkAUthor = [];
-            checkPages = [];
-
-            bookTitleTest.value = "";
-            authorNameTest.value = "";
-            pageNumberTest.value = "";
-            statusTest.checked = false;
-
-        }
+    if (livre.pages <= 0) {
+        return;
     }
+
+    statusReading = statusTest.value
+
+    if (statusTest.checked == true) {
+        livre.status = "Yes"
+    } else if (statusTest.checked == false) {
+        livre.status = "No"
+    }
+
+    myLibrary.push(livre);
+
+    if (checkTitle.length == 0 || myLibrary[myLibrary.length - 1].title == '' || checkAUthor.length == 0 || myLibrary[myLibrary.length - 1].author == '' || (checkPages.length > 0 && checkPages.value > 0)) {
+        myLibrary.pop();
+
+    } else {
+
+        // We make sure to clear our book Grid of every element named after the addingBook Class.
+
+        const addingBookClass = document.querySelectorAll('.addingBook');
+
+        for (let i = 0; i < addingBookClass.length; i++) {
+
+            addingBookClass[i].remove();
+        }
+        // Calling our grid functions to display our books;
+        bookGridHeader();
+        createBookLinesLibrary(myLibrary);
+
+        checkTitle = [];
+        checkAUthor = [];
+        checkPages = [];
+
+        bookTitleTest.value = "";
+        authorNameTest.value = "";
+        pageNumberTest.value = "";
+        statusTest.checked = false;
+
+    }
+
 }
